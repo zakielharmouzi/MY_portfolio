@@ -1,20 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-
-section {
+div {
     position: fixed;
-    top: 0;
+    /* top: 0; 
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url(rl_car.jpg);
     background-position-x: center;
-    background-size: cover;
-    /* animation: animateBg 50s linear infinite; */
+    background-size: cover; */
 }
 
 @keyframes animateBg {

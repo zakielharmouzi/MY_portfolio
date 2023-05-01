@@ -44,8 +44,8 @@ function FollowCar() {
     setTimeout(() => {
       // hide the comment box after 2 seconds
       setComment(null);
-    }, 3000);
-  }, 5000);
+    }, 30000);
+  }, 50000);
 
   // clean up the interval on unmount
   return () => clearInterval(commentInterval);
