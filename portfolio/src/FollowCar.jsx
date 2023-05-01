@@ -27,30 +27,34 @@ function FollowCar() {
       // update car position and rotation
       setPosition({ x: newX, y: newY });
       setRotation(angle);
-
-      // update comment
-      const comments = [
-        "Did you know that JavaScript was created in just 10 days?",
-        "Fun fact: The first computer programmer was a woman named Ada Lovelace",
-        "Java and JavaScript are not related programming languages!",
-        "Debugging is like being a detective in a crime movie where you are also the murderer",
-        "Have you ever heard of the concept of callback hell? It's a thing in async programming!",
-        "You can build amazing things with React, like this cool car that follows your cursor!",
-      ];
-      const randomComment = comments[Math.floor(Math.random() * comments.length)];
-      setComment(randomComment);
     }
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [position]);
+    // start the interval to update the comment
+    
+  // start the interval to update the comment
+  const commentInterval = setInterval(() => {
+    // generate a random comment
+    const comments = [      "Did you know that JavaScript was created in just 10 days?",      "Fun fact: The first computer programmer was a woman named Ada Lovelace",      "Java and JavaScript are not related programming languages!",      "Debugging is like being a detective in a crime movie where you are also the murderer",      "Have you ever heard of the concept of callback hell? It's a thing in async programming!",      "You can build amazing things with React, like this cool car that follows your cursor!",      "Zakaria can't hit an open net in rocket league",      "Zakaria loves driving me,.... INSANE"    ];
+    const randomComment = comments[Math.floor(Math.random() * comments.length)];
+
+    // show the comment box with the new comment
+    setComment(randomComment);
+    setTimeout(() => {
+      // hide the comment box after 2 seconds
+      setComment(null);
+    }, 3000);
+  }, 50000);
+
+  // clean up the interval on unmount
+  return () => clearInterval(commentInterval);
+}, [position]);
+
 
   return (
       <>
-      <div className="comment-box" style={{left: position.x + 50, top: position.y - 50}}>{comment}</div>
+      {comment && <div className="comment-box" style={{left: position.x + 50, top: position.y - 50}}>{comment}</div>}
       <div
         className="car"
         style={{ transform: `translate(-50%, -50%) rotate(${rotation}deg)`, left: position.x, top: position.y }}
