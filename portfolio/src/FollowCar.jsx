@@ -20,7 +20,7 @@ function FollowCar() {
       const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
 
       // calculate new position with easing
-      const easingFactor = 0.20;
+      const easingFactor = 0.10;
       const newX = position.x + deltaX * easingFactor;
       const newY = position.y + deltaY * easingFactor;
 
@@ -44,8 +44,8 @@ function FollowCar() {
     setTimeout(() => {
       // hide the comment box after 2 seconds
       setComment(null);
-    }, 30000);
-  }, 50000);
+    }, 3000);
+  }, 5000);
 
   // clean up the interval on unmount
   return () => clearInterval(commentInterval);
