@@ -36,12 +36,11 @@ function Roadmap() {
   ];
 
   return (
-    <div className="App bg-slate-800">
+    <div className="App bg-gray-900">
       <VerticalTimeline>
         {timeline.map((t, i) => {
-          const contentStyle = i === 0 ? { background: 'rgb(33, 150, 243)', color: '#fff' } : undefined;
-          const arrowStyle = i === 0 ? { borderRight: '7px solid  rgb(33, 150, 243)' } : undefined;
- 
+          const contentStyle = i !== 7 ? { background: 'rgb(33, 150, 243)', color: '#fff' } : undefined;
+          const arrowStyle = i !== 7 ? { borderRight: '7px solid  rgb(100, 120, 243)' } : undefined;
           return <VerticalTimelineElement
             key={i}
             className="vertical-timeline-element--work"
